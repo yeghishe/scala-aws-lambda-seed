@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Scala AWS Lambda Seed Tutorial</title>
+  </head>
+  <body>
+    <div>
+      <h2>Simple handler for primitives</h2>
+      <p>
+        To create a simple handler that takes primitives as arguments and responds with a primitive.
+      </p>
+      <pre>
+<code>
+  object MySimpleHander extends App {
+    def handler(name: String, context: Context): String = s"Hello $name"
+  }
+</code>
+      </pre>
+      <p>
+        To execute this specify <i>&lt;YOUR PACKAGE&gt;.MySimpleHander::handler</i> as the handler for Lambda and <i>&quot;example&quot;</i> quoted string as input.
+      </p>
+    </div>
+
+    <div>
+      <h2>Handler that take a case class and responds with a case class</h2>
+      <p>
+
+        To create a handler that takes a case class and responds with a case class.
+      </p>
+      <pre>
+<code>
+case class Name(name: String)
+case class Greeting(message: String)
+
+class MyHandler extends Handler[Name, Greeting] {
+  def handler(name: Name, context: Context): Greeting = {
+    logger.info(s"Name is $name")
+    Greeting(s"Hello ${name.name}")
+  }
+}
+</code>
+      </pre>
+      <p>
+        To execute this specify <i>&lt;YOUR PACKAGE&gt;MyHandler</i> as the handler for Lambda and <i>{&quot;name&quot;: &quot;Yeghishe&quot;}</i> json as input.
+      </p>
+    </div>
+
+    <div>
+      <h2>Handler that take a case class and doesn't return a respondse</h2>
+      <p>
+
+        To create a handler that take a case class and doesn't return a respondse.
+      </p>
+      <pre>
+<code>
+case class Name(name: String)
+case class Greeting(message: String)
+
+class MyHandler extends Handler[Name, Unit] {
+  def handler(name: Name, context: Context): Unit = {
+    logger.info(s"Name is $name")
+    logger.info(Greeting(s"Hello ${name.name}"))
+  }
+}
+</code>
+      </pre>
+      <p>
+        To execute this specify <i>&lt;YOUR PACKAGE&gt;MyHandler</i> as the handler for Lambda and <i>{&quot;name&quot;: &quot;Yeghishe&quot;}</i> json as input.
+      </p>
+    </div>
+
+    <div>
+      <h2>Handler that take a case class and returns future respondse</h2>
+      <p>
+
+        To create a handler that take a case class and returns future respondse.
+      </p>
+      <pre>
+<code>
+case class Name(name: String)
+case class Greeting(message: String)
+
+class MyHandler extends FutureHandler[Name, Greeting] {
+  def handlerFuture(name: Name, context: Context): Future[Greeting] = {
+    logger.info(s"Name is $name")
+    Future(Thread.sleep(2000)).map(_ => Greeting(s"Hello ${name.name}"))
+  }
+}
+</code>
+      </pre>
+      <p>
+        To execute this specify <i>&lt;YOUR PACKAGE&gt;MyHandler</i> as the handler for Lambda and <i>{&quot;name&quot;: &quot;Yeghishe&quot;}</i> json as input.
+      </p>
+    </div>
+
+    <div>
+      <h2>Handler that take a case class and returns future unit</h2>
+      <p>
+
+        To create a handler that take a case class and returns future unit.
+      </p>
+      <pre>
+<code>
+case class Name(name: String)
+case class Greeting(message: String)
+
+class MyFutureHandler2 extends FutureHandler[Name, Unit] {
+  def handlerFuture(name: Name, context: Context): Future[Unit] = {
+    logger.info(s"Name is $name")
+    Future(Thread.sleep(2000)).map(_ => logger.info(Greeting(s"Hello ${name.name}")))
+  }
+}
+</code>
+      </pre>
+      <p>
+        To execute this specify <i>&lt;YOUR PACKAGE&gt;MyHandler</i> as the handler for Lambda and <i>{&quot;name&quot;: &quot;Yeghishe&quot;}</i> json as input.
+      </p>
+    </div>
+
+  </body>
+</html>
