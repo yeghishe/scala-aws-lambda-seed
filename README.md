@@ -14,7 +14,7 @@ This is a seed project to create AWS Lambdas in Sala
 To create a project from this seed run:
 
 ```
-activator new <YOUR PROJECT NAME> minimal-scala-akka-http-seed
+activator new <YOUR PROJECT NAME> scala-aws-lambda-seed
 ```
 
 [build-status-badge]: https://img.shields.io/travis/yeghishe/scala-aws-lambda-seed.svg?style=flat-square
