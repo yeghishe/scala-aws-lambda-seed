@@ -1,20 +1,19 @@
 name          := "scala-aws-lambda-seed"
 organization  := "io.github.yeghishe"
 version       := "0.0.1"
-scalaVersion  := "2.11.8"
+scalaVersion  := "2.12.1"
 scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8")
 
 resolvers += Resolver.jcenterRepo
 
 libraryDependencies ++= {
-  val ficusV     = "1.2.7"
-  val scalaTestV = "3.0.0"
-  val scalaMockV = "3.3.0"
+  val ficusV     = "1.4.0"
+  val scalaMockV = "3.4.2"
+
   Seq(
-    "io.github.yeghishe"  %% "scala-aws-lambda-utils"      % "0.0.2",
+    "io.github.yeghishe"  %% "scala-aws-lambda-utils"      % "0.0.3",
     "com.iheart"          %% "ficus"                       % ficusV,
     "com.amazonaws"        % "aws-lambda-java-events"      % "1.3.0",
-    "org.scalatest"       %% "scalatest"                   % scalaTestV % "it,test",
     "org.scalamock"       %% "scalamock-scalatest-support" % scalaMockV % "it,test"
   )
 }
