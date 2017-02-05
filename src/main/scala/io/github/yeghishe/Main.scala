@@ -23,4 +23,3 @@ class MyHandler extends Handler[Name, Greeting] {
     Greeting(s"Hello ${name.name}")
   }
 }
-

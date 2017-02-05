@@ -1,7 +1,7 @@
-name          := "scala-aws-lambda-seed"
-organization  := "io.github.yeghishe"
-version       := "0.0.1"
-scalaVersion  := "2.12.1"
+name := "scala-aws-lambda-seed"
+organization := "io.github.yeghishe"
+version := "0.0.1"
+scalaVersion := "2.12.1"
 scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8")
 
 resolvers += Resolver.jcenterRepo
@@ -11,10 +11,10 @@ libraryDependencies ++= {
   val scalaMockV = "3.4.2"
 
   Seq(
-    "io.github.yeghishe"  %% "scala-aws-lambda-utils"      % "0.0.3",
-    "com.iheart"          %% "ficus"                       % ficusV,
-    "com.amazonaws"        % "aws-lambda-java-events"      % "1.3.0",
-    "org.scalamock"       %% "scalamock-scalatest-support" % scalaMockV % "it,test"
+    "io.github.yeghishe" %% "scala-aws-lambda-utils"      % "0.0.3",
+    "com.iheart"         %% "ficus"                       % ficusV,
+    "com.amazonaws"      % "aws-lambda-java-events"       % "1.3.0",
+    "org.scalamock"      %% "scalamock-scalatest-support" % scalaMockV % "it,test"
   )
 }
 
@@ -28,8 +28,8 @@ initialCommands := """|import io.github.yeghishe._
 
 jarName in assembly := s"${name.value}.jar"
 assemblyMergeStrategy in assembly := {
-  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
-  case _ => MergeStrategy.first
+  case PathList("META-INF", xs @ _ *) => MergeStrategy.discard
+  case _                              => MergeStrategy.first
 }
 
 import S3._
