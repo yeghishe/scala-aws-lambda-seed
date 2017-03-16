@@ -21,10 +21,12 @@ libraryDependencies ++= {
 lazy val root = project.in(file(".")).configs(IntegrationTest)
 Defaults.itSettings
 
-initialCommands := """|import io.github.yeghishe._
-                      |import io.github.yeghishe.lambda._
-                      |import scala.concurrent._
-                      |import scala.concurrent.duration._""".stripMargin
+initialCommands := """
+import io.github.yeghishe._
+import io.github.yeghishe.lambda._
+import scala.concurrent._
+import scala.concurrent.duration._
+""".stripMargin
 
 jarName in assembly := s"${name.value}.jar"
 assemblyMergeStrategy in assembly := {
