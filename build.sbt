@@ -8,7 +8,7 @@ resolvers += Resolver.jcenterRepo
 
 libraryDependencies ++= {
   val ficusV     = "1.4.0"
-  val scalaMockV = "3.4.2"
+  val scalaMockV = "3.5.0"
 
   Seq(
     "io.github.yeghishe" %% "scala-aws-lambda-utils"      % "0.0.3",
