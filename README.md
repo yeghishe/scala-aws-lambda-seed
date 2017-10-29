@@ -1,6 +1,8 @@
 scala-aws-lambda-seed
 =========================
 
+**Deprecated in favor of [yeghishe/scala-aws-lambda-seed.g8](https://github.com/yeghishe/scala-aws-lambda-seed.g8)**
+
 [![Build Status][build-status-badge]][build-status-url]
 [![Code Quality][code-quality-badge]][code-quality-url]
 
